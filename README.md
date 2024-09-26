@@ -22,8 +22,9 @@ This Streamlit web app allows users to input a YouTube video URL, retrieve its t
 
 2. Install the required Python packages:
 
+    ```bash
     pip install -r requirements.txt
-
+    ```
 
 3. Set up the Gemini API key:
 
