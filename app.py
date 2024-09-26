@@ -4,7 +4,7 @@ import google.generativeai as genai
 from youtube_transcript_api import YouTubeTranscriptApi
 
 # Set up API key for Gemini
-os.environ["GENAI_API_KEY"] = "AIzaSyAvyQF0MeD-TxtJb3kBCIuyAXzeCA6QURM"
+os.environ["GENAI_API_KEY"] = "Add your Gemini API key"
 
 # Configure Gemini API
 genai.configure(api_key=os.environ["GENAI_API_KEY"])
