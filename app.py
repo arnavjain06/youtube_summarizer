@@ -50,3 +50,30 @@ def generate_summary(transcript):
     except Exception as e:
         st.error(f"Error generating summary: {str(e)}")
         return None
+
+
+# Streamlit app layout
+st.title("YouTube Video Summarizer")
+st.write("Enter a YouTube video URL to get a summary of its content.")
+
+video_url = st.text_input("Enter YouTube video URL (https://www.youtube.com/watch?v=...)")
+
+if video_url:
+    video_id = get_video_id(video_url)
+    if video_id:
+        st.write(f"Video ID: {video_id}")
+        
+        if st.button("Summarize Video"):
+            with st.spinner("Getting transcript and summarizing the video..."):
+                transcript = get_transcript(video_id)
+                if transcript:
+                    st.success("Transcript saved to 'transcript.txt'")
+                    
+                    # Generate the summary
+                    summary = generate_summary(transcript)
+                    if summary:
+                        # Display the summary
+                        st.subheader("Summary:")
+                        st.write(summary)
+    else:
+        st.error("Invalid YouTube URL. Please enter a valid URL in the format: https://www.youtube.com/watch?v=...")
