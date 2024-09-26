@@ -34,3 +34,19 @@ def get_transcript(video_id):
     except Exception as e:
         st.error(f"Error fetching transcript: {str(e)}")
         return None
+
+
+def generate_summary(transcript):
+    try:
+        response = model.generate_content([transcript, "Can you summarize this video transcript as a bulleted list?"])
+        
+        # Extract the generated text from the response
+        summary = ""
+        for part in response.parts:
+            if hasattr(part, 'text'):
+                summary += part.text
+        
+        return summary
+    except Exception as e:
+        st.error(f"Error generating summary: {str(e)}")
+        return None
