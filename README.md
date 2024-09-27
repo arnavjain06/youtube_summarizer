@@ -7,6 +7,7 @@ This Streamlit web app allows users to input a YouTube video URL, retrieve its t
 - Extracts video transcripts using the `youtube-transcript-api`.
 - Summarizes the transcript using Google's Gemini Generative Model.
 - Saves the video transcript to a `transcript.txt` file.
+- Uses Pydantic for data validation
 - Easy-to-use interface for summarizing YouTube video content.
 
 ## Requirements
