@@ -5,7 +5,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from pydantic import BaseModel, ValidationError
 
 # Set up API key for Gemini
-os.environ["GENAI_API_KEY"] = "Add your Gemini API key"
+os.environ["GENAI_API_KEY"] = "AIzaSyBkOs7KXMExBd4VHpPNG7eneK5OzENQvLM"
 
 # Configure Gemini API
 genai.configure(api_key=os.environ["GENAI_API_KEY"])
@@ -33,7 +33,7 @@ def get_transcript(video_info: VideoInfo) -> Transcript:
         transcript = YouTubeTranscriptApi.get_transcript(get_video_id(video_info))
         transcript_text = ""
         for entry in transcript:
-            transcript_text += entry['text'] + " "
+            transcript_text += entry['text'] + "\n"
         
         with open("transcript.txt", "w", encoding="utf-8") as file:
             file.write(transcript_text + "\n")
